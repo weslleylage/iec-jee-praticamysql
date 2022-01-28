@@ -15,7 +15,7 @@ import dao.CategoriaDAO;
 import model.Categoria;
 
 @WebServlet("/index.jsp")
-public class IndexController extends HttpServlet{
+public class Index extends HttpServlet{
     private CategoriaDAO dao = new CategoriaDAO();
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

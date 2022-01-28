@@ -10,7 +10,7 @@
 	<center>
 		<h1>Categorias de Despesas</h1>
         <h2>
-        	<a href="InserirCategoria.jsp">Inserir Nova Categoria</a>
+        	<a href="inserir.jsp">Inserir Nova Categoria</a>
         	&nbsp;&nbsp;&nbsp;       	        	
         </h2>
 	</center>
@@ -29,7 +29,7 @@
                     
                     <td>
                     	<a href="edit?id=<c:out value='${categoria.codigo}' />">Alterar</a>
-                    		&nbsp;&nbsp;&nbsp;&nbsp;W
+                    		&nbsp;&nbsp;&nbsp;&nbsp;
                     	<a href="delete?id=<c:out value='${categoria.codigo}' />">Deletar</a>                    	
                     </td>
                 </tr>

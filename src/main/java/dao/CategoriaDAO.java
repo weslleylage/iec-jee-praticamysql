@@ -44,4 +44,56 @@ public class CategoriaDAO {
 		}
 		return categorias;
 	}
+
+    public Categoria porCodigo(Integer id) throws Exception {
+        Conexao conn = new Conexao();
+		Categoria categoria = new Categoria();
+		try {
+			Statement stmt = (Statement) conn.getConn().createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * from categoria where codigo = " + id);
+			if (rs.next()) {
+				categoria.setCodigo(rs.getInt("codigo"));
+				categoria.setNome(rs.getString("nome"));
+		
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			conn.fecharConexao();
+		}
+		return categoria;
+    }
+
+    public void editar(Categoria categoria) throws Exception {
+		Conexao conn = new Conexao();
+		try {
+			Statement stmt = (Statement) conn.getConn().createStatement();
+			final var update = "update categoria set nome = '" + categoria.getNome() + "' where codigo = " + categoria.getCodigo();
+			stmt.executeUpdate(update);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			conn.fecharConexao();
+		}
+    }
+
+	public void deletar(Integer codigo) throws Exception {
+		Conexao conn = new Conexao();
+		try {
+			Statement stmt = (Statement) conn.getConn().createStatement();
+			final var update = "delete from categoria where codigo = " + codigo;
+			stmt.executeUpdate(update);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			conn.fecharConexao();
+		}
+
+	}
 }
