@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import business.CategoriaService;
-import dao.CategoriaDAO;
 import model.Categoria;
 
 @WebServlet(urlPatterns = "/edit")
