@@ -24,7 +24,7 @@ public class CategoriaDAO {
 		return retorno;
 	}
 	
-	public List<Categoria> Listar(){
+	public List<Categoria> listar(){
 		List<Categoria> categorias = new ArrayList<Categoria>();
 		Conexao conn = new Conexao();
 		try {
