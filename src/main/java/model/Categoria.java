@@ -1,10 +1,13 @@
 package model;
 
+import javax.validation.constraints.NotEmpty;
+
 public class Categoria {
-	private int codigo;
+	private Integer codigo;
+	@NotEmpty
 	private String nome;
 	
-	public int getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 	public void setCodigo(int codigo) {
