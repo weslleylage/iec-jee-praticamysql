@@ -51,7 +51,7 @@ public class CategoriaView implements Serializable {
         }
         this.categorias = dao.listar();
         this.categoria = new Categoria();
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Categoria inserida com sucesso"));
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Categoria inserida com sucesso" ));
     }
  
     public void update() {

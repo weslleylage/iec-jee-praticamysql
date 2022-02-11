@@ -30,7 +30,7 @@
                 <div class="ui-g-2"/>
                 <div class="ui-g-8">
                     <h:form id="categorias">
-                         <p:growl id="growl" sticky="true" />
+                        <p:growl id="growl" sticky="true" />
 
                         <p:dataTable id="categoriaList" var="categoria" value="#{categoriaView.categorias}" rowKey="#{categoria.codigo}" selectionMode="single" 
                             selection="#{categoriaView.categoria}">
@@ -45,7 +45,7 @@
                             </p:column>
 
                             <p:column>
-                                <p:commandButton update="categoriaList" value="Deletar" icon="ui-icon-closethick"
+                                <p:commandButton update="categoriaList :categorias:growl" value="Deletar" icon="ui-icon-closethick"
                                                  action="#{categoriaView.delete(categoria.codigo)}"
                                                  styleClass="ui-priority-primary">
                                 </p:commandButton>
@@ -68,7 +68,7 @@
                             <p:inputText id="nome" value="#{categoriaView.categoria.nome}"/>
                             <p:message for="nome"/>
 
-                            <p:commandButton update="@form :categorias:categoriaList" value="Add / Update"
+                            <p:commandButton update="@form :categorias:categoriaList :categorias:growl" value="Add / Update"
                                              action="#{categoriaView.addUpdate}">
                             </p:commandButton>
                         </h:panelGrid>
