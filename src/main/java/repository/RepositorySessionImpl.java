@@ -17,4 +17,9 @@ public class RepositorySessionImpl implements RepositorySession{
         return new CategoriaRepositoryImpl().setEntityManager(em);
     }
 
+    @Override
+    @TransactionAttribute(TransactionAttributeType.SUPPORTS)
+    public ProdutoRepository getProdutoRepository(){
+        return new ProdutoRepositoryImpl().setEntityManager(em);
+    }
 }

@@ -1,4 +1,4 @@
-package controller;
+package controller.categoria;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,8 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import business.CategoriaService;
 import model.Categoria;
 
-@WebServlet(urlPatterns = "/edit")
+@WebServlet(urlPatterns = "/categoria/editar")
 public class EditarCategoria extends HttpServlet {
+    private static final String URL_LIST_CATEGORIA = "/categoria/listar";
+
     @EJB
     private CategoriaService service;
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -27,12 +29,12 @@ public class EditarCategoria extends HttpServlet {
                 PrintWriter out = response.getWriter();
                 out.print("<html>");
                 out.print("<h2> Nao foi possivel localizar a categoria de codigo " + codigo + "</h2>");
-                out.print("<br");
-                out.print("<a href = 'index.jsp'> Voltar </a>");
+                out.print("<br />");
+                out.print("<a href=" + request.getContextPath() + URL_LIST_CATEGORIA + "> Voltar </a>");
                 out.print("</html>");
             }else {
                 request.setAttribute("categoria", categoria);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("editar.jsp");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("editarCategoria.jsp");
                 dispatcher.forward(request, response);
             }
 		} catch (Exception ex) {
@@ -48,11 +50,16 @@ public class EditarCategoria extends HttpServlet {
             categoria.setCodigo(codigo);
             categoria.setNome(nome);
             service.editar(categoria);
-            response.sendRedirect(request.getContextPath() + "/index.jsp");
+            response.sendRedirect(request.getContextPath() + URL_LIST_CATEGORIA);
         } catch (Exception ex) {
-            throw new ServletException(ex);
+            ex.printStackTrace();
+			PrintWriter out = response.getWriter();
+			out.print("<html>");
+			out.print("<h2> Nao foi possivel editar a categoria!</h2>");
+			out.print("<br />");
+			out.print("<a href=" + request.getContextPath() + URL_LIST_CATEGORIA + "> Voltar </a>");
+			out.print("</html>");
         }
-
     } 
 
 }

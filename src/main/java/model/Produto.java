@@ -6,18 +6,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
 
 @Entity
-@Table(name = "categoria")
-public class Categoria {
+@Table(name = "produto")
+public class Produto {
 
-	@Id
+    @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int codigo;
 
-	@Column(length = 100)
+    @Column(length = 100)
 	private String nome;
-	
+
+    private float preco;
+
+    @ManyToOne
+    @JoinColumn(name = "codigo_categoria")
+    private Categoria categoria;
+
 	public int getCodigo() {
 		return this.codigo;
 	}
@@ -29,5 +37,17 @@ public class Categoria {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-	}		
+	}
+    public float getPreco() {
+		return this.preco;
+	}
+	public void setPreco(float preco) {
+		this.preco = preco;
+	}
+	public Categoria getCategoria() {
+		return this.categoria;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
 }

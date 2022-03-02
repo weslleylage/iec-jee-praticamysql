@@ -1,4 +1,4 @@
-package controller;
+package controller.categoria;
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import business.CategoriaService;
 
-@WebServlet(urlPatterns = "/delete")
+@WebServlet(urlPatterns = "/categoria/deletar")
 public class DeletarCategoria extends HttpServlet {
 	@EJB
     private CategoriaService service;
@@ -20,7 +20,7 @@ public class DeletarCategoria extends HttpServlet {
 		try {
 			Integer codigo = Integer.parseInt(request.getParameter("id"));
             service.deletar(codigo);
-            response.sendRedirect(request.getContextPath() + "/index.jsp");			
+            response.sendRedirect(request.getContextPath() + "/categoria/listar");
 		} catch (Exception ex) {
 			throw new ServletException(ex);
 		}

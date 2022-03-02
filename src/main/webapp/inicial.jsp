@@ -1,39 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"   prefix="c" %>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
 <meta charset="ISO-8859-1">
-<title>Categorias</title>
+<title>Inicio</title>
+<style>
+    table, th, td {
+        border: 0.5px solid black;
+        border-collapse: collapse;
+        padding: 30px;
+    }
+</style>
 </head>
 <body>
-	<center>
-		<h1>Categorias de Despesas</h1>
-        <h2>
-        	<a href="inserir.jsp">Inserir Nova Categoria</a>
-        	&nbsp;&nbsp;&nbsp;       	        	
-        </h2>
-	</center>
+	<h1 style="text-align: center;">Produtos e Categorias</h1>
     <div align="center">
-        <table border="1" cellpadding="5">
-            <caption><h2>Lista de Categorias</h2></caption>
+        <table>
             <tr>
-                <th>Codigo</th>
-                <th>Nome</th>
-                <th>Acoes</th>                              
+                <th><a href="categoria/listar">Ver Categorias</a></th>
+                <th><a href="produto/listar">Ver Produtos</a></th>                       
             </tr>
-            <c:forEach var="categoria" items="${listaCategoria}">
-                <tr>
-                    <td><c:out value="${categoria.codigo}" /></td>
-                    <td><c:out value="${categoria.nome}" /></td>                   
-                    
-                    <td>
-                    	<a href="edit?id=<c:out value='${categoria.codigo}' />">Alterar</a>
-                    		&nbsp;&nbsp;&nbsp;&nbsp;
-                    	<a href="delete?id=<c:out value='${categoria.codigo}' />">Deletar</a>                    	
-                    </td>
-                </tr>
-            </c:forEach>
         </table>
     </div>	
 </body>

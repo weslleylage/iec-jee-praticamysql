@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
 <meta charset="ISO-8859-1">
 <title>Inserir Categoria</title>
@@ -12,7 +12,7 @@
 			Nome: <input type="text" name="nome" id="nome">
 			<input type="submit" value="Inserir">
 		</form>
-		<a href="index.jsp"> Voltar </a>
+		<a href="listar"> Voltar </a>
 	</center>
 </body>
 </html>
