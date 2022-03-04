@@ -15,15 +15,17 @@ public class Produto {
 
     @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "codigo")
 	private int codigo;
 
-    @Column(length = 100)
+    @Column(nullable = false, length = 100)
 	private String nome;
 
+	@Column(nullable = false)
     private float preco;
 
     @ManyToOne
-    @JoinColumn(name = "codigo_categoria")
+    @JoinColumn(name = "codigo_categoria", referencedColumnName = "codigo")
     private Categoria categoria;
 
 	public int getCodigo() {
